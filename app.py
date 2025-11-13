@@ -8,6 +8,7 @@ import time
 
 load_dotenv()
 
+groq_api_key = os.getenv("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")
 # ============================================================================
 # CONFIGURE PAGE
 # ============================================================================
