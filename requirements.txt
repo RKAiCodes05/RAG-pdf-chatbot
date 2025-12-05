@@ -1,0 +1,15 @@
+langchain
+langchain-core
+langchain-community
+pypdf #its for reading pdf documents
+pymupdf
+sentence-transformers
+faiss-cpu
+chromadb
+jupyter>=1.0.0
+notebook>=7.0.0
+ipywidgets>=8.0.0
+pylance
+streamlit
+python-dotenv
+groq
