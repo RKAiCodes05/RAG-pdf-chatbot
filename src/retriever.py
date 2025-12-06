@@ -3,11 +3,11 @@ import numpy as np
 from src.vector_store import VectorStore
 from src.embeddings import EmbeddingManager
 class RAGRetriever:
-    """Handles query-based retrieval from the vector store"""
+    """Handling query-based retrieval from the vector store"""
     
     def __init__(self, vector_store: VectorStore, embedding_manager: EmbeddingManager):
         """
-        Initialize the retriever
+        Initializing the retriever
         
         Args:
             vector_store: Vector store containing document embeddings
@@ -18,7 +18,7 @@ class RAGRetriever:
     
     def retrieve(self, query: str, top_k: int = 5, score_threshold: float = 0.0) -> List[Dict[str, Any]]:
         """
-        Retrieve relevant documents for a query
+        Retrieving relevant documents for a query
         
         Args:
             query: The search query
