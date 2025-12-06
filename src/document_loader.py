@@ -1,7 +1,7 @@
 from langchain_community.document_loaders import PyPDFLoader
 from pathlib import Path
 def process_all_pdfs(pdf_directory):
-    """Process all PDF files in a directory"""
+    """Processing all PDF files in a directory"""
     all_documents = []
     pdf_dir = Path(pdf_directory)
     
