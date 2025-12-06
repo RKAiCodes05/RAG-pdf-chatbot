@@ -1,10 +1,3 @@
-"""
-RAG System - Retrieval-Augmented Generation for PDFs
-
-A production-grade system for semantic search and question answering
-over PDF documents.
-"""
-
 __version__ = "1.0.0"
 __author__ = "RAM"
 
