@@ -1,11 +1,11 @@
 from typing import List, Dict, Any
 from src.retriever import RAGRetriever
 class RAGSystem:
-    """Complete RAG system that orchestrates all components"""
+    """Completing RAG system that orchestrates all components"""
     
     def __init__(self, vector_store, embedding_manager, llm_client, retriever=None):
         """
-        Initialize RAG system
+        Initializing RAG system
         
         Args:
             vector_store: Vector store instance
