@@ -17,10 +17,7 @@ class RAGSystemSaver:
         self.save_dir = save_dir
         os.makedirs(save_dir, exist_ok=True)
     
-    # ─────────────────────────────────────────────────────────────────
-    # JSON Methods
-    # ─────────────────────────────────────────────────────────────────
-    
+    # JSON Methods    
     def save_config_json(self, rag_system, name="default"):
         """Save system configuration to JSON"""
         config = {
@@ -58,10 +55,7 @@ class RAGSystemSaver:
         print(f"✅ Configuration loaded from {filepath}")
         return config
     
-    # ─────────────────────────────────────────────────────────────────
     # SQLite Methods
-    # ─────────────────────────────────────────────────────────────────
-    
     def _init_sqlite_db(self, db_path):
         """Initialize SQLite database with proper schema"""
         conn = sqlite3.connect(db_path)
@@ -94,7 +88,7 @@ class RAGSystemSaver:
             )
         ''')
         
-        # Create indices for faster queries
+        # Creating indices for faster queries
         cursor.execute('CREATE INDEX IF NOT EXISTS idx_conversations_session ON conversations(session_id)')
         cursor.execute('CREATE INDEX IF NOT EXISTS idx_conversations_created ON conversations(created_at)')
         cursor.execute('CREATE INDEX IF NOT EXISTS idx_sources_conversation ON sources(conversation_id)')
@@ -106,17 +100,17 @@ class RAGSystemSaver:
         """Save conversation history to SQLite database"""
         db_path = os.path.join(self.save_dir, f"{name}_conversations.db")
         
-        # Initialize DB
+        # Initializing DB
         self._init_sqlite_db(db_path)
         
-        # Insert conversations
+        # Inserting conversations
         conn = sqlite3.connect(db_path)
         cursor = conn.cursor()
         
         session_id = session_id or datetime.now().isoformat()
         
         for conv in rag_system.conversation_history:
-            # Insert conversation
+            # Inserting conversation
             similarity_scores = [s.get('similarity', 0) for s in conv.get('sources', [])]
             avg_similarity = sum(similarity_scores) / len(similarity_scores) if similarity_scores else 0
             
@@ -135,7 +129,7 @@ class RAGSystemSaver:
             
             conv_id = cursor.lastrowid
             
-            # Insert sources
+            # Inserting sources
             for source in conv.get('sources', []):
                 cursor.execute('''
                     INSERT INTO sources 
