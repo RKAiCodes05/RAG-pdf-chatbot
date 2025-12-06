@@ -2,12 +2,10 @@ from typing import List, Dict, Any
 import os
 from groq import Groq
 
-class GroqClient:
-    """Client to interact with Groq LLM API"""
-    
+class GroqClient:    
     def __init__(self, api_key: str = None):
         """
-        Initialize the Groq client
+        Initializing the Groq client
         
         Args:
             api_key: Groq API key (if None, reads from GROQ_API_KEY env variable)
@@ -21,7 +19,7 @@ class GroqClient:
         self.client = self._initialize_client()
     
     def _initialize_client(self):
-        """Initialize Groq client with API key"""
+        #Initializing Groq client with API key
         try:
             print("Initializing Groq client...")
             client = Groq(api_key=self.api_key)
@@ -40,7 +38,7 @@ class GroqClient:
         max_tokens: int = 1000
     ) -> Dict[str, Any]:
         """
-        Generate response using retrieved contexts
+        Generating response using retrieved contexts
         
         Args:
             query: User's question
