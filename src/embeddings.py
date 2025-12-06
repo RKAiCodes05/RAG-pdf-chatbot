@@ -1,9 +1,7 @@
 from typing import List
 import numpy as np
 from sentence_transformers import SentenceTransformer
-class EmbeddingManager:
-    """Handles document embedding generation using SentenceTransformer"""
-    
+class EmbeddingManager:    
     def __init__(self, model_name: str = "all-MiniLM-L6-v2"):
         """
         Initialize the embedding manager
@@ -16,7 +14,7 @@ class EmbeddingManager:
         self._load_model()
     
     def _load_model(self):
-        """Load the SentenceTransformer model"""
+        #Loading the SentenceTransformer model
         try:
             print(f"Loading embedding model: {self.model_name}")
             self.model = SentenceTransformer(self.model_name)
